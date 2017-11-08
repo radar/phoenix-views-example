@@ -22,13 +22,13 @@ When you go to `http://localhost:4000/articles` you'll see a list of articles wi
 
 This is accomplished by using Phoenix's wonderful views. Looking at the `index` action in `ArticleController`, there's this:
 
-```
+```elixir
 render(conn, "index.json", articles: articles)
 ```
 
 This uses the `ArticleView` to do the rendering, rather than rendering JSON outright. `ArticleView` has this function:
 
-```
+```elixir
 def render("index.json", %{articles: articles}) do
   render_many(articles, ArticleView, "article.json")
 end
@@ -36,7 +36,7 @@ end
 
 This is the function that is called from your controller. It calls `render_many`, which will call the `render` function again on this same view, but instead of `index.json` it uses `article.json`, which is defined like this:
 
-```
+```elixir
 def render("article.json", %{article: article}) do
   %{id: article.id,
     title: article.title,
@@ -46,7 +46,7 @@ end
 
 This then calls this `render` function in the `CommentView`:
 
-```
+```elixir
 def render("comment.json", %{comment: comment}) do
   %{
     text: comment.text
