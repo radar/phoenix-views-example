@@ -1,4 +1,8 @@
-# Blog
+# Phoenix Views Example
+
+This came out of an IRC discussion about why views were better than rendering JSON in the controller, and then later on there was an [Elixir Forum post](https://elixirforum.com/t/what-are-the-advantages-of-using-a-render-json-view-vs-rendering-json-objects-directly-using-json-conn-data-is/10175) asking the same thing. See the post for information.
+
+---
 
 First, run the usual Phoenix app setup:
 
